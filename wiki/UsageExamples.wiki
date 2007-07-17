@@ -1,0 +1,56 @@
+#summary Examples of how to use iniparse.
+
+=Usage Examples=
+
+==New API==
+
+Open an INI file:
+{{{
+>>> from iniparse import INIConfig
+>>> cfg = INIConfig(file('options.ini'))
+}}}
+
+Access/Modify data:
+{{{
+>>> print cfg.playlist.expand_playlist
+True
+>>> print cfg.ui.width
+150
+>>> cfg.ui.width = 200
+>>> print cfg['ui']['width']
+200
+}}}
+
+Print data:
+{{{
+>>> print cfg
+[playlist]
+expand_playlist = True
+
+[ui]
+display_clock = True
+display_qlength = True
+width = 200
+}}}
+
+==Backword Compatiable API==
+
+The entire !ConfigParser API is supported.  This is just a brief example:
+{{{
+>>> from iniparse import ConfigParser
+>>> cfgpr = ConfigParser()
+>>> cfgpr.read('options.ini')
+>>> print cfgpr.get('ui', 'width')
+150
+>>> cfgpr.set('ui', 'width', 175)
+}}}
+
+The new API can also be accessed via backword-compatible objects:
+
+{{{
+>>> print cfgpr.data.playlist.expand_playlist
+True
+>>> cfgpr.data.ui.width = 200
+>>> print cfgpr.data.ui.width
+200
+}}}
