@@ -19,7 +19,7 @@ changed a bit.  Here's the mapping from old names to new names:
 
 Many other internal names have changed, but most user code should not notice any changes.
 
-Another change is that the major classes are directly available in the `iniparse` module, rather than submodules.  For example:
+Another change is that the major classes are directly available in the `iniparse` module for convenience.  For example:
 
 {{{
 from iniparse import ConfigParser
