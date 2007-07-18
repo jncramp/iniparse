@@ -3,18 +3,19 @@
 = History =
 
 This project used to be called `cfgparse`. It was renamed in July 2007 to avoid being confused with another
-project on SourceForge with the same name.  In the process of renaming the project, the API was cleaned
-up a bit.
+project on !SourceForge with the same name.  In the process of renaming the project, the API was cleaned
+up to adhere more strongly to [http://www.python.org/dev/peps/pep-0008/ PEP 8].
 
 = API Changes =
 
 The backward compatible classes in `iniparse.compat` are unchanged (naturally). The "native" API has
 changed a bit.  Here's the mapping from old names to new names:
 
-`ini_namespace` --> `INIConfig`
-`basic_namespace` --> `BasicConfig`
-`namespace` --> `ConfigNamespace`
-`.import_namespace()` --> `.import_config()`
+|| *Old Name* || *New Name* ||
+|| `ini_namespace` || `INIConfig` ||
+|| `basic_namespace` || `BasicConfig` ||
+|| `namespace` || `ConfigNamespace` ||
+|| `.import_namespace()` || `.import_config()` ||
 
 Many other internal names have changed, but most user code should not notice any changes.
 
@@ -25,3 +26,5 @@ from iniparse import ConfigParser
 cfg = ConfigParser()
 # ... etc.
 }}}
+
+If you have more questions, feel free to ask on [http://groups.google.com/group/iniparse-discuss iniparse-discuss].
