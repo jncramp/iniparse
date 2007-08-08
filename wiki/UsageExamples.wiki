@@ -1,4 +1,5 @@
 #summary Examples of how to use iniparse.
+#labels Featured
 
 *New API:*
 
