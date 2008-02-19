@@ -1,16 +1,30 @@
 #summary Examples of how to use iniparse.
 #labels Featured
 
-*New API:*
-
-Open an INI file:
+Create an INI file:
 {{{
 >>> from iniparse import INIConfig
->>> cfg = INIConfig(file('options.ini'))
+>>> cfg = INIConfig()
+>>> cfg.playlist.expand_playlist = 'True'
+>>> cfg.ui.display_clock = 'True'
+>>> cfg.ui.display_qlength = 'True'
+>>> cfg.ui.width = '150'
+>>> print cfg
+[playlist]
+expand_playlist = True
+
+[ui]
+display_clock = True
+display_qlength = True
+width = 150
+>>> f = open('options.ini','w')
+>>> f.write(str(cfg))
+>>> close(f)
 }}}
 
 Access/Modify data:
 {{{
+>>> cfg = INIConfig(file('options.ini'))
 >>> print cfg.playlist.expand_playlist
 True
 >>> print cfg.ui.width
