@@ -1,6 +1,8 @@
 #summary Examples of how to use iniparse.
 #labels Featured
 
+* Native API:*
+
 Create an INI file:
 {{{
 >>> from iniparse import INIConfig
@@ -17,38 +19,28 @@ expand_playlist = True
 display_clock = True
 display_qlength = True
 width = 150
->>> f = open('options.ini','w')
->>> f.write(str(cfg))
->>> close(f)
+>>> f = open('options.ini', 'w')
+>>> print >>f, cfg
+>>> f.close()
 }}}
 
-Access/Modify data:
+Access INI file data:
 {{{
->>> cfg = INIConfig(file('options.ini'))
+>>> cfg = INIConfig(open('options.ini'))
 >>> print cfg.playlist.expand_playlist
 True
 >>> print cfg.ui.width
 150
->>> cfg.ui.width = 200
+>>> cfg.ui.width = '200'
 >>> print cfg['ui']['width']
 200
 }}}
 
-Print data:
-{{{
->>> print cfg
-[playlist]
-expand_playlist = True
-
-[ui]
-display_clock = True
-display_qlength = True
-width = 200
-}}}
+Changes to data are not saved automatically.  You must write to the INI file explicitly as shown in the first example.
 
 *Backword Compatiable API:*
 
-The entire !ConfigParser API is supported.  This is just a brief example:
+See the [http://docs.python.org/lib/module-ConfigParser.html Python library documentation] for the complete !ConfigParser API. This is just a brief example:
 {{{
 >>> from iniparse import ConfigParser
 >>> cfgpr = ConfigParser()
