@@ -41,7 +41,7 @@ The entire !ConfigParser API is supported.  This is just a brief example:
 >>> cfgpr.read('options.ini')
 >>> print cfgpr.get('ui', 'width')
 150
->>> cfgpr.set('ui', 'width', 175)
+>>> cfgpr.set('ui', 'width', '175')
 }}}
 
 The new API can also be accessed via backword-compatible objects:
@@ -49,7 +49,7 @@ The new API can also be accessed via backword-compatible objects:
 {{{
 >>> print cfgpr.data.playlist.expand_playlist
 True
->>> cfgpr.data.ui.width = 200
+>>> cfgpr.data.ui.width = '200'
 >>> print cfgpr.data.ui.width
 200
 }}}
