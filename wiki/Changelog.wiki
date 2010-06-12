@@ -1,3 +1,2 @@
 #summary History of changes
-#labels Featured
 See http://code.google.com/p/iniparse/source/browse/trunk/Changelog
